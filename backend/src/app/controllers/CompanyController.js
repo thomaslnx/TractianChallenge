@@ -20,7 +20,7 @@ class CompanyController {
       state,
       state_initials,
     }).catch((error) => {
-      return res.status(400).json({ message: 'As iniciais do estado devem ser preenchidas apenas com duas letras!'})
+      return res.status(400).json({ message: 'As iniciais do estado devem ter apenas duas letras!'})
     });
 
     return res.json(company);
