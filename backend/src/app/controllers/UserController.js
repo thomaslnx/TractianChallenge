@@ -5,9 +5,9 @@ class UserController {
   async store(req, res) {
     const { admin_user, name, email } = req.body;
 
-    const adminExists = await AdminUser.findOne({ name: admin_user });
+    const isAdmin = await AdminUser.findOne({ name: admin_user });
 
-    if (adminExists === null || adminExists.position !== 'Manager') {
+    if (isAdmin === null || isAdmin.position !== 'Manager') {
       return res.status(400).json({ error: 'Only admins can add new users'});
     }
 

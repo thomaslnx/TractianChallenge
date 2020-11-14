@@ -6,7 +6,7 @@ class CompanyBranchController {
   async store(req, res) {
     const { admin_user, name, business_type, headquarters, city, state, state_initials } = req.body;
 
-    const adminExists = await AdminUser.findOne({ name: admin_user });
+    const isAdmin = await AdminUser.findOne({ name: admin_user });
 
     if (headquarters.length !== 24) {
       return res.status(400).json({
@@ -19,7 +19,7 @@ class CompanyBranchController {
       return res.status(400).json({ error: 'Company not found!' });
     }
 
-    if (adminExists === null || adminExists.position !== 'Manager') {
+    if (isAdmin === null || isAdmin.position !== 'Manager') {
       return res.status(400).json({ error: 'Only admins can add new companies'});
     }
 
