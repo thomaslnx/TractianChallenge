@@ -57,7 +57,18 @@ class UserController {
     return;
   };
 
-  async delete() {};
+  async delete(req, res) {
+    const { _id } = req.params;
+
+    const deletedUser = await User.deleteOne({ _id });
+
+    if (deletedUser.ok === 1) {
+      return res.json({ message: 'User removed successfuly' })
+    } else {
+      return res.json({ message: 'Error during deletion'});
+    }
+
+  };
 }
 
 export default new UserController();

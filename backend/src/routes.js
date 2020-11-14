@@ -19,6 +19,7 @@ routes.post('/admin-users', AdminUserController.store);
 routes.post('/users', UserController.store);
 routes.put('/users/:_id', UserController.update);
 routes.get('/users', UserController.index);
+routes.delete('/users/:_id', UserController.delete);
 
 // Route to create companies
 routes.post('/companies', CompanyController.store);
