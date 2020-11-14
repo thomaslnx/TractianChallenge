@@ -2,6 +2,12 @@ import Company from '../schemas/Company';
 import AdminUser from '../schemas/AdminUser';
 
 class CompanyController {
+  async index(req, res) {
+    const companies = await Company.find();
+
+    return res.json(companies);
+  }
+
   async store(req, res) {
     const { admin_user, name, business_type, city, state, state_initials, subsidiaries } = req.body;
 

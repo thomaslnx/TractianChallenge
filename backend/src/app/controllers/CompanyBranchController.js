@@ -1,5 +1,5 @@
 import Company from '../schemas/Company';
-import CompanyBranch from '../schemas/CompanyBrach';
+import CompanyBranch from '../schemas/CompanyBranch';
 import AdminUser from '../schemas/AdminUser';
 
 class CompanyBranchController {
