@@ -14,6 +14,9 @@ const upload = multer(multerConfig);
 
 // Route to create admin users
 routes.post('/admin-users', AdminUserController.store);
+routes.put('/admin-users/:_id', AdminUserController.update);
+routes.get('/admin-users', AdminUserController.index);
+routes.delete('/admin-users/:_id', AdminUserController.delete);
 
 // Route to create ordinary users
 routes.post('/users', UserController.store);

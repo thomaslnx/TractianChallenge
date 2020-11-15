@@ -22,38 +22,21 @@ class UserController {
   async index(req, res) {
     const userData = await User.find();
 
-    return res.json({userData});
+    return res.json(userData);
   };
 
   async update(req, res) {
-    const { name, email } = req.body;
+    const userData = req.body;
     const { _id } = req.params;
 
-    if (!email) {
-      await User.findByIdAndUpdate(_id, { name }, { new: true }, function(err, result) {
-        if(err) {
-          return res.json(err);
-        } else {
-          return res.json(result);
-        }
-      });
-    } else if (!name) {
-      await User.findByIdAndUpdate(_id, { email }, { new: true }, function(err, result) {
-        if(err) {
-          return res.json(err);
-        } else {
-          return res.json(result);
-        }
-      })
-    } else if (name && email) {
-      await User.findByIdAndUpdate(_id, { name, email }, { new: true }, function(err, result) {
-        if(err) {
-          return res.json(err);
-        } else {
-          return res.json(result);
-        }
-      })
-    }
+    await User.findByIdAndUpdate(_id, userData, { new: true }, function(err, result) {
+      if(err) {
+        return res.json(err);
+      } else {
+        return res.json(result);
+      }
+    });
+
     return;
   };
 
