@@ -1,5 +1,5 @@
-import User from '../schemas/User';
-import AdminUser from '../schemas/AdminUser';
+const User = require('../schemas/User');
+const AdminUser = require('../schemas/AdminUser');
 
 class UserController {
   async store(req, res) {
@@ -54,4 +54,4 @@ class UserController {
   };
 }
 
-export default new UserController();
+module.exports = new UserController();

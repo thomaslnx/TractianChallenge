@@ -1,8 +1,9 @@
-import mongoose, { Schema, ObjectId } from 'mongoose';
-import CompanyBranch from './CompanyBranch';
-import User from './User';
+const mongoose = require('mongoose');
+const ObjectId = require('mongoose').ObjectId;
+const CompanyBranch = require('./CompanyBranch');
+const User = require('./User');
 
-const BranchAssetsSchema = new Schema({
+const BranchAssetsSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -35,4 +36,4 @@ const BranchAssetsSchema = new Schema({
   timestamps: true,
 });
 
-export default mongoose.model('BranchAssets', BranchAssetsSchema);
+module.exports = mongoose.model('BranchAssets', BranchAssetsSchema);

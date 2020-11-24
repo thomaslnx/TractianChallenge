@@ -1,4 +1,4 @@
-import AdminUser from '../schemas/AdminUser';
+const AdminUser = require('../schemas/AdminUser');
 
 class AdminUserController {
   async store(req, res) {
@@ -47,4 +47,4 @@ class AdminUserController {
   };
 }
 
-export default new AdminUserController();
+module.exports = new AdminUserController();

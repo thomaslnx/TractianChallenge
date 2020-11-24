@@ -1,5 +1,7 @@
-import mongoose, { Schema, ObjectId } from 'mongoose';
-import Company from './Company';
+const mongoose = require('mongoose');
+const Schema = require('mongoose').Schema;
+const ObjectId = require('mongoose').ObjectId;
+const Company = require('./Company');
 
 const CompanyBranchSchema = new Schema({
   name: {
@@ -28,4 +30,4 @@ const CompanyBranchSchema = new Schema({
   },
 });
 
-export default mongoose.model('CompanyBranch', CompanyBranchSchema);
+module.exports = mongoose.model('CompanyBranch', CompanyBranchSchema);

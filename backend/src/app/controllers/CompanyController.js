@@ -1,5 +1,5 @@
-import Company from '../schemas/Company';
-import AdminUser from '../schemas/AdminUser';
+const Company = require('../schemas/Company');
+const AdminUser = require('../schemas/AdminUser');
 
 class CompanyController {
   async index(req, res) {
@@ -33,4 +33,4 @@ class CompanyController {
   }
 }
 
-export default new CompanyController();
+module.exports = new CompanyController();

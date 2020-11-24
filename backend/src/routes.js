@@ -1,13 +1,13 @@
-import { Router } from 'express';
-import multer from 'multer';
+const Router = require('express').Router;
+const multer = require('multer');
 
-import multerConfig from './config/multer';
+const multerConfig = require('./config/multer');
 
-import AdminUserController from './app/controllers/AdminUserController';
-import UserController from './app/controllers/UserController';
-import CompanyController from './app/controllers/CompanyController';
-import CompanyBranchController from './app/controllers/CompanyBranchController';
-import BranchAssetsController from './app/controllers/BranchAssetsController';
+const AdminUserController = require('./app/controllers/AdminUserController');
+const UserController = require('./app/controllers/UserController');
+const CompanyController = require('./app/controllers/CompanyController');
+const CompanyBranchController = require('./app/controllers/CompanyBranchController');
+const BranchAssetsController = require('./app/controllers/BranchAssetsController');
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -34,4 +34,4 @@ routes.post('/subsidiaries', CompanyBranchController.store);
 // Route to create assets
 routes.post('/branchassets', upload.single('image'), BranchAssetsController.store);
 
-export default routes;
+module.exports = routes;

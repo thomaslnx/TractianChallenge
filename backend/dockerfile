@@ -1,0 +1,17 @@
+# Dockerfile
+# Production Environment
+FROM node:14 as prod
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src
+
+COPY package*.json /usr/src
+
+RUN npm install npm@latest -g
+RUN npm install
+
+COPY . /usr/src
+
+EXPOSE 3333
+
+CMD ["npm", "start"]

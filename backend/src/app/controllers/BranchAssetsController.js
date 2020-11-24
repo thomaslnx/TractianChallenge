@@ -1,6 +1,6 @@
-import CompanyBranch from '../schemas/CompanyBranch';
-import AdminUser from '../schemas/AdminUser';
-import BranchAssets from '../schemas/BranchAssets';
+const CompanyBranch = require('../schemas/CompanyBranch');
+const AdminUser = require('../schemas/AdminUser');
+const BranchAssets = require('../schemas/BranchAssets');
 
 class BranchAssetsController {
   async store(req, res) {
@@ -45,4 +45,4 @@ class BranchAssetsController {
   }
 }
 
-export default new BranchAssetsController();
+module.exports = new BranchAssetsController();

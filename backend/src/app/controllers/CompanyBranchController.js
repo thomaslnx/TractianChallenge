@@ -1,6 +1,6 @@
-import Company from '../schemas/Company';
-import CompanyBranch from '../schemas/CompanyBranch';
-import AdminUser from '../schemas/AdminUser';
+const Company = require('../schemas/Company');
+const CompanyBranch = require('../schemas/CompanyBranch');
+const AdminUser = require('../schemas/AdminUser');
 
 class CompanyBranchController {
   async store(req, res) {
@@ -39,4 +39,4 @@ class CompanyBranchController {
   }
 }
 
-export default new CompanyBranchController();
+module.exports = new CompanyBranchController();

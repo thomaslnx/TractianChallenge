@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  nodejs:
+    container_name: backend_nodejs
+    restart: always
+    build: .
+    ports:
+      - "3333:3333"
+    depends_on: 
+      - mongo-db
+  mongo-db:
+    image: mongo:latest
+    restart: always
+    container_name: tractian-challenge-db
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  mongodb-data:
