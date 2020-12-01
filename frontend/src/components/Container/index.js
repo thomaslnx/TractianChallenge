@@ -1,11 +1,22 @@
+import { useState, useEffect } from 'react';
 import { Row, Col, Typography } from 'antd';
 import { blue } from '@ant-design/colors';
-import Header from '../Header'
+import Header from '../Header';
+
+import api from '../../services/api';
 import './container.css';
 
 const { Title } = Typography;
 
 const Container = () => {
+  const [assets, setAssets] = useState([]);
+
+  useEffect(async() => {
+    const assets = await api.get('https://challenge-tractian.herokuapp.com/branchassets');
+
+    setAssets(assets);
+  });
+
   return(
     <>
       <Row justify='center' align='top'>

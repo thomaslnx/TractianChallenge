@@ -33,5 +33,6 @@ routes.post('/subsidiaries', CompanyBranchController.store);
 
 // Route to create assets
 routes.post('/branchassets', upload.single('image'), BranchAssetsController.store);
+routes.get('/branchassets', BranchAssetsController.index);
 
 module.exports = routes;

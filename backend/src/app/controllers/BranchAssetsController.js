@@ -43,6 +43,12 @@ class BranchAssetsController {
 
     return res.json(assets);
   }
+
+  async index(req, res) {
+    const assets = await BranchAssets.find();
+
+    return res.json(assets);
+  }
 }
 
 module.exports = new BranchAssetsController();
