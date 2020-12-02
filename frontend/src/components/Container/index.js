@@ -1,29 +1,47 @@
 import { useState, useEffect } from 'react';
-import { Row, Col, Typography } from 'antd';
-import { blue } from '@ant-design/colors';
-import Header from '../Header';
+import { Row, Col, Typography, Select } from 'antd';
 
 import api from '../../services/api';
 import './container.css';
 
 const { Title } = Typography;
+const { Option } = Select;
 
 const Container = () => {
   const [assets, setAssets] = useState([]);
+  const [units, setUnits] = useState([]);
+  const [unitSelected, setUnitSelected] = useState();
+
+  const option = ['Marcos', 'Talita', 'Alicia', 'Helena'];
 
   useEffect(async() => {
     const assets = await api.get('https://challenge-tractian.herokuapp.com/branchassets');
+    const units = await api.get('https://challenge-tractian.herokuapp.com/subsidiaries')
+    setAssets(assets.data);
+    setUnits(units.data);
+  }, []);
 
-    setAssets(assets);
-  });
+  function handleSelectChange(value) {
+    setUnitSelected(value);
+  }
 
   return(
-    <>
-      <Row justify='center' align='top'>
-        <Col>
-          <Header />
-        </Col>
-      </Row>
+    <div className='main-container'>
+      <p style={{ textAlign: 'center' }}>Escolha a unidade:</p>
+      <div className='select'>
+        <Row justify='center' align='top'>
+          <Col>
+            <Select showArrow='true' style={{ width: 120 }} onSelect={handleSelectChange}>
+              {
+                units.map(unit => (
+                  <Option key={unit.id} value={unit.name}>{unit.name}</Option>
+                  ))
+              }
+            </Select>
+          </Col>
+        </Row>
+      </div>
+
 
       <Row gutter={[16,32]}>
         <Col xl={12} xxl={12}>
@@ -40,7 +58,11 @@ const Container = () => {
               Assets
             </Title>
             <div className='content'>
-                <div className='assetsContent'>Content of Assets</div>
+                <div className='assetsContent'>{assets.map(item => (
+                  <div>{item.name}
+                  </div>
+                ))}</div>
+
             </div>
         </Col>
 
@@ -78,7 +100,7 @@ const Container = () => {
           <p>GRAPH Content</p>
         </Col>
       </Row>
-    </>
+    </div>
   )
 };
 

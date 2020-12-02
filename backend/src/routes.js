@@ -30,9 +30,10 @@ routes.get('/companies', CompanyController.index);
 
 // Route to create subsidiaries
 routes.post('/subsidiaries', CompanyBranchController.store);
+routes.get('/subsidiaries', CompanyBranchController.index);
 
 // Route to create assets
-routes.post('/branchassets', upload.single('image'), BranchAssetsController.store);
 routes.get('/branchassets', BranchAssetsController.index);
+routes.post('/branchassets', upload.single('image'), BranchAssetsController.store);
 
 module.exports = routes;

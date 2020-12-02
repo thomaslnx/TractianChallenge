@@ -37,6 +37,12 @@ class CompanyBranchController {
 
     return res.json(companyBranch);
   }
+
+  async index(req, res) {
+    const units = await CompanyBranch.find();
+
+    return res.json(units);
+  }
 }
 
 module.exports = new CompanyBranchController();
