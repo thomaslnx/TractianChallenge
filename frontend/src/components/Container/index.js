@@ -11,8 +11,7 @@ const Container = () => {
   const [assets, setAssets] = useState([]);
   const [units, setUnits] = useState([]);
   const [unitSelected, setUnitSelected] = useState();
-
-  const option = ['Marcos', 'Talita', 'Alicia', 'Helena'];
+  const [selectedAssets, setSelectedAssets] = useState([]);
 
   useEffect(async() => {
     const assets = await api.get('https://challenge-tractian.herokuapp.com/branchassets');
@@ -22,7 +21,17 @@ const Container = () => {
   }, []);
 
   function handleSelectChange(value) {
-    setUnitSelected(value);
+    let unitId;
+
+    units.find(unit => {
+      if (unit.name === value) {
+        unitId = unit._id;
+      } else {
+        return;
+      }
+    });
+
+    setUnitSelected(unitId);
   }
 
   return(
@@ -31,7 +40,7 @@ const Container = () => {
       <div className='select'>
         <Row justify='center' align='top'>
           <Col>
-            <Select showArrow='true' style={{ width: 120 }} onSelect={handleSelectChange}>
+            <Select showArrow='true' style={{ width: 250 }} onSelect={handleSelectChange}>
               {
                 units.map(unit => (
                   <Option key={unit.id} value={unit.name}>{unit.name}</Option>
@@ -42,60 +51,47 @@ const Container = () => {
         </Row>
       </div>
 
-
-      <Row gutter={[16,32]}>
-        <Col xl={12} xxl={12}>
-            <Title
-              level={3}
-              style={{
-                textAlign: 'center',
-                color: '#613400',
-                background: '#ffd666',
-                borderTopLeftRadius: '4px',
-                borderTopRightRadius: '4px',
-              }}
-            >
+      <div className='assets-content'>
+        <Row gutter={[16,32]}>
+          <Col xl={12} xxl={12}>
+            <Title level={3} style={{ textAlign: 'center', color: '#ffffff', background: '#213d59', borderTopLeftRadius: '4px', borderTopRightRadius: '4px' }}>
               Assets
             </Title>
+
             <div className='content'>
-                <div className='assetsContent'>{assets.map(item => (
-                  <div>{item.name}
-                  </div>
-                ))}</div>
-
-            </div>
-        </Col>
-
-        <Col xl={12} xxl={12}>
-          <Title
-            level={3}
-            style={{
-              textAlign: 'center',
-              color: '#613400',
-              background: '#ffd666',
-              borderTopLeftRadius: '4px',
-              borderTopRightRadius: '4px'
-            }}
-          >
-            Health Assets
-          </Title>
-          <div className='content'>
-              <div className='healthAssetsContent'>
-                Content of  Healt Assets
+              <div className='assetsContent'>
+                {
+                  assets.map(item => (
+                    item.branchOwner === unitSelected ? <div>{item.name}</div> : <div> </div>
+                    ))
+                }
               </div>
-          </div>
-        </Col>
-      </Row>
+            </div>
+          </Col>
+
+          <Col xl={12} xxl={12}>
+            <Title level={3} style={{ textAlign: 'center', color: '#ffffff', background: '#213d59', borderTopLeftRadius: '4px', borderTopRightRadius: '4px' }}>
+              Health Assets
+            </Title>
+
+            <div className='content'>
+              <div className='healthAssetsContent'>
+              {
+                assets.map(item => (
+                  item.branchOwner === unitSelected ? <div>{item.healthscore}</div> : <div> </div>
+                  ))
+              }
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </div>
+
 
       <Row justify='center'>
         <Col span={24}>
-          <Title level={3} style={{
-            textAlign:'center',
-            color: '#613400',
-            background: '#ffd666'
-            }}
-          >
-              Graph
+          <Title level={3} style={{ textAlign:'center', color: '#ffffff', background: '#213d59' }} >
+            Graph
           </Title>
           <p>GRAPH Content</p>
         </Col>
