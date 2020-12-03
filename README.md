@@ -40,6 +40,29 @@ Multer.
 ## Backend
 [Heroku](https://challenge-tractian.herokuapp.com/)
 
+### Backend routes
+
+Add admin user: POST https://challenge-tractian.herokuapp.com/admin-users <br>
+Update admin user: PUT https://challenge-tractian.herokuapp.com/admin-users:_id <br>
+List admin user: GET https://challenge-tractian.herokuapp.com/admin-users <br>
+Delete admin user: DELETE https://challenge-tractian.herokuapp.com/admin-users:_id <br>
+<br>
+Add ordinary users: POST https://challenge-tractian.herokuapp.com/users <br>
+Update ordinary users: PUT https://challenge-tractian.herokuapp.com/users:_id <br>
+List ordinary users: GET https://challenge-tractian.herokuapp.com/users <br>
+Delete ordinary users: DELETE https://challenge-tractian.herokuapp.com/users:_id <br>
+<br>
+Add companies: POST https://challenge-tractian.herokuapp.com/companies <br>
+List companies: GET https://challenge-tractian.herokuapp.com/companies <br>
+<br>
+Add subsidiaries: POST https://challenge-tractian.herokuapp.com/subsidiaries <br>
+List subsidiaries: GET https://challenge-tractian.herokuapp.com/subsidiaries <br>
+<br>
+Create Asset: POST https://challenge-tractian.herokuapp.com/branchassets <br>
+List Asset: GET https://challenge-tractian.herokuapp.com/branchassets <br>
+<br><br>
+In the backend there are some validations, for instance to create user have must be a admin user, like so to create a subsidiary and, branch asset.
+
 ## Frontend
 [Netlify](https://tractian-challenge.netlify.app/)
 <h1 align='center'>
