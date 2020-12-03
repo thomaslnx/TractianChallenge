@@ -15,7 +15,7 @@ This challenge has such purpose to test the applicant's skills for an open posit
 
 # The Challenge
 
-The code challenge consists in to build a nodejs backend to work with a reactjs front end, and host both online. Below are some tools/frameworks used to achieve this result:
+The code challenge consists in to build a nodejs backend to work with a reactjs front end, and host both online. Below are some tools/frameworks/libs used to achieve this result:
 ```
 ReactJs - javascript based frontend framework;
 NodeJS - javascript backend runtime;
@@ -25,7 +25,14 @@ MongoDB - NoSQL database;
 MongoDB Atlas - on line deploy for mongo databases;
 Heroku Kaffeine - makes Heroku app stand wake over time;
 AntDesign - A design system for enterprise-level products;
-Netlify - Online deploy for front-end apps.
+Netlify - Online deploy for front-end apps;
+Sucrase - development environment;
+Nodemon - development environment;
+ExpressJS;
+Axios;
+CORS;
+Mongoose;
+Multer.
 ```
 
 # Live Demos
@@ -35,7 +42,17 @@ Netlify - Online deploy for front-end apps.
 
 ## Frontend
 [Netlify](https://tractian-challenge.netlify.app/)
+<h1 align='center'>
+  <img alt='tractian' src="live.png" />
+</h1>
 
 # Repository
 
 [github](https://github.com/thomaslnx/TractianChallenge)
+
+# Where to find me
+[Linkedin](https://www.linkedin.com/in/marcos-de-moura-silva/)
+<br>
+[Github](https://github.com/thomaslnx)
+<br>
+[Twitter](https://twitter.com/thomaslnx)
