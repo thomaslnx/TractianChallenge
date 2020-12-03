@@ -1,13 +1,14 @@
 # Challenge for Job Application
 
 This is a code test for a job application. The such company is [Tractian](https://tractian.com). As they itself define their mission:
+<p>
+Nossa missão é transformar a experiência de quem trabalha em manutenção. O que interessa é suas máquinas não te deixarem na mão e fazer tudo funcionar como deve funcionar. Queremos que todos os profissionais de manutenção tenham acesso ao monitoramento online de equipamentos e a uma plataforma completa que consiga analisar, fornecer insights valiosos e permitir tomada de decisões de um jeito muito mais prático e intuitivo.
+</p>
 <h1 align='center'>
   <img alt='tractian' src="tractian.png" />
 </h1>
 
-<p>
-Nossa missão é transformar a experiência de quem trabalha em manutenção. O que interessa é suas máquinas não te deixarem na mão e fazer tudo funcionar como deve funcionar. Queremos que todos os profissionais de manutenção tenham acesso ao monitoramento online de equipamentos e a uma plataforma completa que consiga analisar, fornecer insights valiosos e permitir tomada de decisões de um jeito muito mais prático e intuitivo.
-</p>
+
 
 # Challenge Purpose
 
